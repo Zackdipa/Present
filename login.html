@@ -1,0 +1,149 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            margin: 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        } 
+        form label {
+            
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        form input {
+            font-size: 1rem;
+            border-radius: 8px;
+            border: none;
+            padding-left: 8px;
+            height: 2.5em;
+
+        }
+        
+        /* From Uiverse.io by satyamchaudharydev */ 
+            button {
+            --primary-color: #833ab4;
+            --secondary-color: #fff;
+            --hover-color: #111;
+            --arrow-width: 10px;
+            --arrow-stroke: 2px;
+            box-sizing: border-box;
+            border: 0;
+            border-radius: 20px;
+            color: var(--secondary-color);
+            padding: 1em 1.8em;
+            background: var(--primary-color);
+            display: flex;
+            transition: 0.2s background;
+            align-items: center;
+            gap: 0.6em;
+            font-weight: bold;
+            width: fit-content;
+            margin: 0 auto;
+            }
+
+            button .arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+            button .arrow {
+            margin-top: 1px;
+            width: var(--arrow-width);
+            background: var(--primary-color);
+            height: var(--arrow-stroke);
+            position: relative;
+            transition: 0.2s;
+            }
+
+            button .arrow::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            border: solid var(--secondary-color);
+            border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+            display: inline-block;
+            top: -3px;
+            right: 3px;
+            transition: 0.2s;
+            padding: 3px;
+            transform: rotate(-45deg);
+            }
+
+            button:hover {
+            background-color: var(--hover-color);
+            }
+
+            button:hover .arrow {
+            background: var(--secondary-color);
+            }
+
+            button:hover .arrow:before {
+            right: 0;
+            }
+            
+
+
+    </style>
+
+<body>
+    
+    <form action="index.html">
+        <h1>Login</h1>
+
+        <input type="text" id="user" name="fname" placeholder="Username"><br>
+        <input type="password" id="pass" name="lname" placeholder="Password"><br><br>
+
+       
+
+        <button onclick="login(event)">
+            Sign up
+            <div class="arrow-wrapper">
+                <div class="arrow"></div>
+
+            </div>
+        </button>
+
+    </form> 
+
+<script>
+    function login(event) {
+    event.preventDefault(); 
+    const user = document.getElementById("user").value;
+    const pass = document.getElementById("pass").value;
+
+    if (user === "0" && pass === "0") {
+        sessionStorage.setItem("logged", "true");
+        window.location.href = "index.html";
+    } else {
+        alert("Credenziali errate");
+
+    }
+    document.getElementById("user").value = "";
+    document.getElementById("pass").value = "";
+
+    
+}
+
+</script>
+
+</body>
+    
+
+</html>

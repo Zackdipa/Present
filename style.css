@@ -1,13 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
     font-family: system-ui, sans-serif;
     margin: 0;
     min-height: 100vh;
-    display: flex;
-    background: radial-gradient(circle at top, #fecaca, #5b0b26);
+    background: radial-gradient(circle, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 0%, rgba(184, 73, 165, 1) 93%);
     color: #f9fafb;
-    padding: 40px;               
+    padding: 100px 20px;               
     box-sizing: border-box;
-    padding: 100px;
 
 }
 .navbar {
@@ -54,7 +57,7 @@ ul {
     background: rgba(248, 250, 252, 0.15);
 }
 
-    /* Contenuto sotto la navbar */
+    
 .content {
     padding-top: 80px; /* spazio per non finire sotto la navbar */
     display: flex;
@@ -69,5 +72,265 @@ ul {
     border-radius: 1.5rem;
     max-width: 600px;
 }
+
+.time-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 80px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.time-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 90px; /* keeps counters from collapsing on narrow screens */
+}
+
+/* Responsive sizes for the number and label */
+.time-number {
+    font-size: clamp(2rem, 12vw, 8rem); /* smaller minimum and max for better fit */
+    font-weight: 700;
+    color: #f9fafb;
+    line-height: 1;
+    text-wrap: balance;
+}
+
+.time-label {
+    font-size: clamp(0.6rem, 2.5vw, 1rem);
+    color: rgba(249, 250, 251, 0.8);
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+}
+
+/* Smaller screens: reduce spacing and font sizes so everything fits & centers */
+@media (max-width: 600px) {
+  .time-container {
+    gap: 1rem;
+    padding-top: 40px;
+  }
+  .time-counter {
+    min-width: 70px;
+  }
+  .time-number {
+    font-size: clamp(1.6rem, 10vw, 5rem);
+  }
+  .time-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .time-container {
+    gap: 0.6rem;
+    padding-top: 30px;
+  }
+  .time-counter {
+    min-width: 60px;
+  }
+  .time-number {
+    font-size: clamp(1.2rem, 14vw, 4rem);
+  }
+  .time-label {
+    font-size: 0.75rem;
+  }
+}
+
+h1 {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    padding: 2rem 1rem;
+    line-height: 1.4;
+}
+
+/* ===== NAVBAR APPLE (STESSO STILE TUO) ===== */
+
+.nav-container {
+  height: 56px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 28px;
+  padding: 6px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle span {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(.2,.9,.2,1), opacity 0.25s ease;
+  display: block;
+}
+
+.menu-toggle span:first-child {
+  top: 7px;
+}
+
+.menu-toggle span:last-child {
+  bottom: 7px;
+}
+
+/* create the middle line using a pseudo-element on the last span */
+.menu-toggle span:last-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: inherit;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Active (open) state: morph into an X */
+.apple-navbar.active .menu-toggle span:first-child {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.apple-navbar.active .menu-toggle span:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.apple-navbar.active .menu-toggle span:last-child::before {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  /* make it cover the entire viewport but collapsed by default for animation */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  background: rgba(10, 10, 12, 0.95);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+  z-index: 999;
+}
+
+/* Ensure links are centered in all pages (higher specificity and fallback) */
+.apple-navbar .mobile-menu {
+  align-items: center !important; /* ensure horizontal centering */
+}
+
+.apple-navbar .mobile-menu a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 0.6rem 0.8rem;
+  display: block;             /* make each link a block so it can be centered */
+  width: 100%;
+  max-width: 420px;          /* prevent overly long lines on wide devices */
+  margin: 0 auto;            /* center the block horizontally */
+  text-align: center !important;        /* center the text inside the block */
+}
+
+/* Strong fallback to force centering on all pages (extra specificity + !important) */
+html .apple-navbar .mobile-menu,
+.apple-navbar .mobile-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;    /* horizontal centering */
+  justify-content: center !important; /* vertical centering when open */
+  text-align: center !important;
+  padding-left: 0 !important;        /* remove left offsets */
+  padding-right: 0 !important;       /* remove right offsets */
+}
+
+html .apple-navbar .mobile-menu a,
+.apple-navbar .mobile-menu > a {
+  display: block !important;        /* ensure block-level across pages */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  width: 90% !important;            /* leave small gutter on sides */
+  max-width: 420px !important;
+  box-sizing: border-box !important;
+  padding-left: 0.6rem !important;  /* keep comfortable tap area */
+  padding-right: 0.6rem !important;
+}
+
+/* Debug helper: add .debug-mobile to body to show layout outlines */
+.debug-mobile .apple-navbar .mobile-menu {
+  outline: 2px dashed rgba(255,255,255,0.12) !important;
+}
+.debug-mobile .apple-navbar .mobile-menu a {
+  outline: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* ACTIVE */
+.apple-navbar.active .mobile-menu {
+  height: 100vh; /* full screen */
+  padding: 0 1.5rem; /* remove top offset so content can be vertically centered */
+  opacity: 1;
+  pointer-events: auto;
+  justify-content: center !important; /* vertically center links */
+  gap: 1.75rem; /* increase vertical spacing when centered */
+}
+
+/* prevent background scroll while nav is open */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* small tweaks for menu appearance */
+@media (max-width: 420px) {
+  .mobile-menu a { font-size: 1.05rem; }
+}
+
+.apple-navbar.active .menu-toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.apple-navbar.active .menu-toggle span:nth-child(2) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
 
 

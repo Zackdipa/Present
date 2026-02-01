@@ -1,16 +1,87 @@
 <html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
-    <header class="navbar">
+    <header class="navbar apple-navbar">
+  <div class="nav-container">
     <div class="nav-logo">Per Noi ❤️</div>
+
     <nav class="nav-links">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="memories.html">Memories</a></li>  <!-- Pagina delle nostre foto assieme -->
-        <li><a href="music.html">Music</a></li> <!-- pagine delle canzoni per lei-->
-        <li><a href="jokes.html">Jokes</a></li>  <!-- Pagina degli scherzi/meme -->
-        <li><a href="time.html">Time</a></li> <!-- Pagina che conta i giorni mesi da quando ci siamo fidanzati -->
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="memories.html">Memories</a>
+      <a href="music.html">Music</a>
+      <a href="jokes.html">Jokes</a>
+      <a href="time.html">Time</a>
     </nav>
-  </header>
+
+    <button class="menu-toggle" aria-label="Apri menu">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="memories.html">Memories</a>
+    <a href="music.html">Music</a>
+    <a href="jokes.html">Jokes</a>
+    <a href="time.html">Time</a>
+  </div>
+</header>
+
+    
+<script src="navbar.js"></script>
+   <body>
+
+    <div class="time-container"> <!-- Time container for the counters  -->
+      <div class="time-counter">
+        <div class="time-number" id="days"></div>
+        <div class="time-label">days</div>
+      </div>
+      <div class="time-counter">
+        <div class="time-number" id="hours"></div>
+        <div class="time-label">hours</div>
+      </div>
+      <div class="time-counter">
+        <div class="time-number" id="minutes"></div>
+        <div class="time-label">minutes</div>
+      </div>
+    </div>
+
+    <h1 style="text-align: center;">Che stiamo insieme e non potrò mai fare a meno che ringraziarti per tutto il periodo bellissimo che stiamo passando insieme. Ti amo tanto amore mio.
+    </h1>
+
+
+
+    <script  type="text/javascript">
+          var initialDate = new Date(2025, 1, 5); // Feb 5th 2025
+          
+          function updateCounters() {
+            var now = Date.now();
+            var difference = now - initialDate;
+            
+            var millisecondsPerDay = 24 * 60 * 60 * 1000;
+            var millisecondsPerHour = 60 * 60 * 1000;
+            var millisecondsPerMinute = 60 * 1000;
+            
+            var daysSince = Math.floor(difference / millisecondsPerDay);
+            var hoursSince = Math.floor((difference % millisecondsPerDay) / millisecondsPerHour);
+            var minutesSince = Math.floor((difference % millisecondsPerHour) / millisecondsPerMinute);
+            
+            document.getElementById('days').innerHTML = daysSince.toString();
+            document.getElementById('hours').innerHTML = hoursSince.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutesSince.toString().padStart(2, '0');
+          }
+          
+          updateCounters();
+          setInterval(updateCounters, 1000);
+    </script>
+    <script>
+      if (sessionStorage.getItem("logged") !== "true") {
+        window.location.href = "login.html";
+      }
+    </script>
+
+  </body>
 </html>

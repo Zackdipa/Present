@@ -1,16 +1,47 @@
 <html>
     <link rel="stylesheet" href="style.css">
 
-    <header class="navbar">
+    <header class="navbar apple-navbar">
+  <div class="nav-container">
     <div class="nav-logo">Per Noi ❤️</div>
+
     <nav class="nav-links">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="memories.html">Memories</a></li>  <!-- Pagina delle nostre foto assieme -->
-        <li><a href="music.html">Music</a></li> <!-- pagine delle canzoni per lei-->
-        <li><a href="jokes.html">Jokes</a></li>  <!-- Pagina degli scherzi/meme -->
-        <li><a href="time.html">Time</a></li> <!-- Pagina che conta i giorni mesi da quando ci siamo fidanzati -->
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="memories.html">Memories</a>
+      <a href="music.html">Music</a>
+      <a href="jokes.html">Jokes</a>
+      <a href="time.html">Time</a>
     </nav>
-  </header>
+
+    <button class="menu-toggle" aria-label="Apri menu">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="memories.html">Memories</a>
+    <a href="music.html">Music</a>
+    <a href="jokes.html">Jokes</a>
+    <a href="time.html">Time</a>
+  </div>
+    </header>
+
+    
+    <script src="navbar.js"></script>
+   <body>
+    <h1 style="text-align: center;">Ritorna qui ogni tanto, potrebbero esserci nuove canzoni nella playlist!</h1>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6VoMnkwG6v3mgCTthPp2pV?utm_source=generator" width="100%" height="650" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+
+
+
+    <script>
+      if (sessionStorage.getItem("logged") !== "true") {
+        window.location.href = "login.html";
+      }
+    </script>
+
+  </body>
 </html>
