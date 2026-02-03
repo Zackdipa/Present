@@ -2,6 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 body {
     font-family: system-ui, sans-serif;
@@ -11,7 +17,14 @@ body {
     color: #f9fafb;
     padding: 100px 20px;               
     box-sizing: border-box;
+    overflow-x: hidden;
 
+}
+
+img,
+iframe {
+  max-width: 100%;
+  height: auto;
 }
 .navbar {
     position: fixed;
@@ -95,7 +108,7 @@ ul {
 
 /* Responsive sizes for the number and label */
 .time-number {
-    font-size: clamp(2rem, 12vw, 8rem); /* smaller minimum and max for better fit */
+    font-size: clamp(2.5rem, 14vw, 9rem); /* larger, still responsive */
     font-weight: 700;
     color: #f9fafb;
     line-height: 1;
@@ -103,10 +116,16 @@ ul {
 }
 
 .time-label {
-    font-size: clamp(0.6rem, 2.5vw, 1rem);
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
     color: rgba(249, 250, 251, 0.8);
     text-transform: lowercase;
     letter-spacing: 0.05em;
+}
+
+.time-message {
+    font-size: clamp(1.1rem, 3.6vw, 1.7rem);
+    line-height: 1.4;
+    padding: 0 1rem;
 }
 
 /* Smaller screens: reduce spacing and font sizes so everything fits & centers */

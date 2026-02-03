@@ -214,7 +214,7 @@
 
     .counter {
       display: flex;
-      font-size: clamp(3rem, 12vw, 10rem);
+      font-size: clamp(3.5rem, 14vw, 12rem);
       font-weight: bold;
       overflow: hidden;
     }
@@ -257,11 +257,15 @@
 
     /* Giorni */
     .label {
-      font-size: 3rem;
+      font-size: clamp(1.6rem, 6vw, 3.8rem);
       opacity: 0;
       animation: fade-in 1s ease forwards;
       animation-delay: 2.5s;
       text-align: center;
+    }
+
+    .days-text {
+      font-size: clamp(1.05rem, 3.6vw, 1.6rem);
     }
 
     @keyframes fade-in {
@@ -323,7 +327,7 @@
           <div class="label">GIORNI INSIEME</div>
         </div>
 
-        <h2>Con oggi sono 365 giorni che stiamo assieme e non potrò mai ringraziarti abbastanza per tutto ciò che hai fatto per me e per il bellissimo periodo che abbiamo trascorso assieme, te ne sarò eternamente grato e non avrei mai potuto immaginare di trovare una ragazza intelligente e bellissima come lo sei tu, seppur con un caratterino un pò esplosivo.</h2>
+        <h2 class="days-text">Con oggi sono 365 giorni che stiamo assieme e non potrò mai ringraziarti abbastanza per tutto ciò che hai fatto per me e per il bellissimo periodo che abbiamo trascorso assieme, te ne sarò eternamente grato e non avrei mai potuto immaginare di trovare una ragazza intelligente e bellissima come lo sei tu, seppur con un caratterino un pò esplosivo.</h2>
         <a href="index.html#timeline" class="button1">Scorri giù</a>
       </div>
     </div>
