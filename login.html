@@ -1,10 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Login</title>
-</head>
     <style>
         body {
             min-height: 100vh;
@@ -24,9 +24,8 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        } 
+        }
         form label {
-            
             font-size: 1.1rem;
             font-weight: bold;
         }
@@ -36,11 +35,10 @@
             border: none;
             padding-left: 8px;
             height: 2.5em;
-
         }
-        
-        /* From Uiverse.io by satyamchaudharydev */ 
-            button {
+
+        /* From Uiverse.io by satyamchaudharydev */
+        button {
             --primary-color: #833ab4;
             --secondary-color: #fff;
             --hover-color: #111;
@@ -59,24 +57,24 @@
             font-weight: bold;
             width: fit-content;
             margin: 0 auto;
-            }
+        }
 
-            button .arrow-wrapper {
+        button .arrow-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            }
+        }
 
-            button .arrow {
+        button .arrow {
             margin-top: 1px;
             width: var(--arrow-width);
             background: var(--primary-color);
             height: var(--arrow-stroke);
             position: relative;
             transition: 0.2s;
-            }
+        }
 
-            button .arrow::before {
+        button .arrow::before {
             content: "";
             box-sizing: border-box;
             position: absolute;
@@ -88,66 +86,51 @@
             transition: 0.2s;
             padding: 3px;
             transform: rotate(-45deg);
-            }
+        }
 
-            button:hover {
+        button:hover {
             background-color: var(--hover-color);
-            }
+        }
 
-            button:hover .arrow {
+        button:hover .arrow {
             background: var(--secondary-color);
-            }
+        }
 
-            button:hover .arrow:before {
+        button:hover .arrow:before {
             right: 0;
-            }
-            
-
-
+        }
     </style>
-
+</head>
 <body>
-    
     <form action="index.html">
         <h1>Login</h1>
 
         <input type="text" id="user" name="fname" placeholder="Username"><br>
         <input type="password" id="pass" name="lname" placeholder="Password"><br><br>
 
-       
-
         <button onclick="login(event)">
             Sign up
             <div class="arrow-wrapper">
                 <div class="arrow"></div>
-
             </div>
         </button>
+    </form>
 
-    </form> 
+    <script>
+        function login(event) {
+            event.preventDefault();
+            const user = document.getElementById("user").value;
+            const pass = document.getElementById("pass").value;
 
-<script>
-    function login(event) {
-    event.preventDefault(); 
-    const user = document.getElementById("user").value;
-    const pass = document.getElementById("pass").value;
-
-    if (user === "0" && pass === "0") {
-        sessionStorage.setItem("logged", "true");
-        window.location.href = "index.html";
-    } else {
-        alert("Credenziali errate");
-
-    }
-    document.getElementById("user").value = "";
-    document.getElementById("pass").value = "";
-
-    
-}
-
-</script>
-
+            if (user === "0" && pass === "0") {
+                sessionStorage.setItem("logged", "true");
+                window.location.href = "index.html";
+            } else {
+                alert("Credenziali errate");
+            }
+            document.getElementById("user").value = "";
+            document.getElementById("pass").value = "";
+        }
+    </script>
 </body>
-    
-
 </html>
