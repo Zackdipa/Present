@@ -140,6 +140,8 @@ ul {
   .time-container {
     gap: 1rem;
     padding-top: 40px;
+    flex-direction: column;
+    align-items: center;
   }
   .time-counter {
     min-width: 70px;
@@ -356,6 +358,7 @@ html .apple-navbar .mobile-menu a,
     display: block;
   }
 }
+
 
 
 
