@@ -115,7 +115,7 @@ ul {
 
 /* Responsive sizes for the number and label */
 .time-number {
-    font-size: clamp(2.5rem, 14vw, 9rem); /* larger, still responsive */
+    font-size: clamp(3.5rem, 14vw, 12rem); /* match index counter size */
     font-weight: 700;
     color: #f9fafb;
     line-height: 1;
@@ -147,7 +147,7 @@ ul {
     min-width: 70px;
   }
   .time-number {
-    font-size: clamp(1.6rem, 10vw, 5rem);
+    font-size: clamp(3rem, 16vw, 9rem);
   }
   .time-label {
     font-size: 0.85rem;
@@ -163,7 +163,7 @@ ul {
     min-width: 60px;
   }
   .time-number {
-    font-size: clamp(1.2rem, 14vw, 4rem);
+    font-size: clamp(2.6rem, 16vw, 7.5rem);
   }
   .time-label {
     font-size: 0.75rem;
@@ -358,7 +358,6 @@ html .apple-navbar .mobile-menu a,
     display: block;
   }
 }
-
 
 
 
